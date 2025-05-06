@@ -1,14 +1,9 @@
 import { createContext, useReducer } from "react";
 
-// Context yaratish
 const LikeContext = createContext({});
-
-// Boshlang‘ich state
 const initialState = {
     data: JSON.parse(localStorage.getItem("liked")) || [],
 };
-
-// Reducer funksiyasi
 const reducer = (state, action) => {
     switch (action.type) {
         case "toggle_like": {
@@ -16,10 +11,8 @@ const reducer = (state, action) => {
             let updatedData;
 
             if (exists) {
-                // Agar mavjud bo‘lsa, o‘chiramiz
                 updatedData = state.data.filter(item => item.id !== action.data.id);
             } else {
-                // Mavjud bo‘lmasa, qo‘shamiz
                 updatedData = [...state.data, action.data];
             }
 
@@ -32,7 +25,6 @@ const reducer = (state, action) => {
     }
 };
 
-// Context Provider komponenti
 const LikeContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
