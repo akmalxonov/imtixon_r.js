@@ -1,0 +1,105 @@
+.navbar {
+    padding: 0 0 17px 0;
+    border-bottom: 1px solid #C2CDDD;
+    .wrapper {
+        border-top: 1px solid #C2CDDD;
+        padding-top: 17px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        .logo{
+            cursor: pointer;
+        }
+        .canter{
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            img{
+                width: 128px;
+                height: 40px;
+                cursor: pointer;
+            }
+            .input{
+                width: 760px;
+                height: 40px;
+            }
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            span {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                cursor: pointer;
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+    .wrapper-top{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // height: 40px;
+        padding: 12px 0;
+        .top-right{
+            display: flex;
+            align-items: center;
+            gap: 45px;
+            a{
+                display: flex;
+                align-items: center;
+                &:nth-child(2){
+                    font-weight: 700;
+                    color: #5D78FF;
+                }
+                &:nth-child(1){
+                    color: #C2CDDD;
+                }
+                &:nth-child(3){
+                    color: #6682A9;
+                }
+                &:nth-child(4){
+                    color: #6682A9;
+                }
+                &:nth-child(5){
+                    color: #6682A9;
+                }
+                display: flex;
+                gap: 8px;
+                font-size: 14px;
+                .tashkent{
+                    text-decoration:underline;
+                    color: #5D78FF;
+
+                }
+                display: flex;
+                align-items: center;
+                img{
+                    height: 17px;
+                    margin-top: 5px;
+                }
+            }
+        }
+        .top-left{
+            a{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 16px;
+                font-weight: 700;
+                img{
+                    height: 17px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

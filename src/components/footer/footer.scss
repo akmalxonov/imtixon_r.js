@@ -1,0 +1,112 @@
+.custom-footer {
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-top: 30px;
+    }
+    .footer-box {
+        border: 1px solid #E9E9E9;
+        padding: 21px 21px 42px 21px;
+        height: 269px;
+        border-radius: 5px;
+        h4 {
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        p {
+            margin: 6px 0;
+            color: #6682A9;
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        a {
+            font-size: 16px;
+            font-weight: 400;
+            margin-left: 15px;
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            p {
+                color: black;
+            }
+        }
+
+        ul{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: 2px;
+            li {
+                font-size: 16px;
+                font-weight: 400;
+                list-style: none;
+                color: #007AA7;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .center {
+        text-align: center;
+
+        .social-icons {
+            padding: 26px 21px 21px 21px;
+
+            .grid {
+                display: flex;
+                justify-content: space-between;
+                margin: 11px 0 0;
+            }
+
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border: 1px solid #E9E9E9;
+            border-radius: 5px;
+
+            svg {
+                cursor: pointer;
+                color: #555;
+
+                &:hover {
+                    color: #1a73e8;
+                }
+            }
+        }
+
+        .payments {
+            padding: 22px;
+
+            .grid {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 5px;
+            }
+
+            margin-bottom: 10px;
+            border: 1px solid #E9E9E9;
+            border-radius: 5px;
+
+            img {
+                height: 30px;
+            }
+
+            p {
+                font-size: 16px;
+                font-weight: 400;
+                color: #222222;
+            }
+        }
+
+    }
+}

@@ -1,0 +1,117 @@
+.shop{
+    .pusto{
+        border: 1px solid#E5E7EB;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        h2{
+            font-size: 25px;
+        }
+        h3{
+            font-size: 22px;
+            margin-top: 16px;
+        }
+        button{
+            width: 240px;
+            padding: 20px;
+            color: white;
+            background-color: #6682A9;
+            margin-top: 16px;
+        }
+    }
+    .wrapper{
+        width: 100%;
+        display: flex;
+        align-items: start;
+        gap: 10px;
+        margin-top: 20px;
+        .left{
+            width: 60%;
+            border: 1px solid #E5E7EB;
+            border-radius: 10px;
+            padding: 20px;
+            .card-shop{
+                .top{
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    h5{
+                        font-size: 16px;
+                    }
+                    h3{
+                        font-size: 25px;
+                    }
+                    .img{
+                        width: 220px;
+                        height: 220px;
+                        // border: 1px solid black;
+                    }
+                }
+                .buttom{
+                    display: flex;
+                    align-items: center;
+                    gap:50px ;
+                    .user-price{
+                        width: 150px;
+                        h5{
+                            font-size: 16px;
+                            font-weight: 400;
+                            text-align: center;
+                        }
+                    }
+                    .count{
+                        display: flex;
+                        align-items: center;
+                        gap: 20px;
+                        p{
+                            font-size: 20px;
+                            font-weight: 600;
+                        }
+                        button{
+                            border-radius: 50%;
+                            width: 40px;
+                            height: 40px;
+                            font-size: 20px;
+                            padding: 0 0 4px 1px;
+                        }
+                    }
+                    .delete{
+                        color: red;
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+        .right{
+            width: 40%;
+            border: 1px solid #E5E7EB;
+            border-radius: 10px;
+            padding: 20px;
+            .price{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                h2{
+                    font-size: 25px;
+                }
+                h4{
+                    font-size: 20px;
+                    margin-top: 20px;
+                }
+            }
+            p{
+                margin: 10px 0 ;
+                span{
+                    font-weight: 700;
+                }
+            }
+            .btn{
+                background-color: #6682A9;
+                width: 100%;
+                color: white;
+                font-size: 16px;
+                padding:25px;
+            }
+        }
+    }
+}
