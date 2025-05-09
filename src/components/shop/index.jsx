@@ -1,21 +1,25 @@
-import React, { useContext } from 'react';
 import "../shop/shop.scss"
 import { Button } from 'antd';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
-import { ShopContext } from '../../context/shop-context';
 import { useNavigate } from 'react-router-dom';
+import { decrement, deleteProduct, increment } from '../../redux/shopSlice';
+import { useDispatch, useSelector } from 'react-redux';
+
+
 const ShopComponent = () => {
     const navigate = useNavigate()
-    const { state, dispatch } = useContext(ShopContext);
-    const totalPrice = state.data.reduce(
+    const dispatch = useDispatch();
+    const { data } = useSelector((state) => state.shop);
+    const totalPrice = data.reduce(
         (acc, value) => acc + (value.userPrice || 0), 0
-    )
-    console.log(totalPrice);
+    );
+
+
 
     return (
         <section className="shop">
             <div className="container">
-                {state.data.length ===0 ? (
+                {data.length ===0 ? (
                     <div className="pusto">
                         <h2>Корзина</h2>
                         <h3>Ваша корзина пусто</h3>
@@ -24,7 +28,7 @@ const ShopComponent = () => {
                 ):<div className="wrapper">
                 <div className="left">
                     <h2>Корзина</h2>
-                    {state.data.map((value) => (
+                    {data.map((value) => (
                         <div className="card-shop" key={value.id}>
                             <div className="top">
                                 <div className="img">
@@ -37,14 +41,14 @@ const ShopComponent = () => {
                             </div>
                             <div className="buttom">
                                 <div className="count">
-                                    <Button onClick={() => dispatch({ type: "decrement", id: value.id })} color="danger" variant="outlined">-</Button>
+                                    <Button onClick={() => dispatch(decrement(value.id))} color="danger" variant="outlined">-</Button>
                                     <p>{value.count}</p>
-                                    <Button onClick={() => dispatch({ type: "increment", id: value.id })}>+</Button>
+                                    <Button onClick={() => dispatch(increment(value.id))}>+</Button>
                                 </div>
                                 <div className="user-price">
                                     <h5>{value.userPrice.toLocaleString()}so'm</h5>
                                 </div>
-                                <RiDeleteBin6Fill className='delete' onClick={() => dispatch({ type: "delete", id: value.id })} />
+                                <RiDeleteBin6Fill className='delete' onClick={() => dispatch(deleteProduct(value.id))} />
                             </div>
                         </div>
                     ))}

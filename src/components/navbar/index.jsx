@@ -11,14 +11,13 @@ import icon4 from "../../assets/icon4.svg"
 import { Badge, Button, Space } from 'antd';
 import { Heart } from 'lucide-react';
 import "../navbar/navbar.scss"
-import { ShopContext } from '../../context/shop-context';
 import { useNavigate } from 'react-router-dom';
 import Search from 'antd/es/input/Search';
 import { FaCartShopping } from 'react-icons/fa6';
-import { LikeContext } from '../../context/heart-context';
+import { useSelector } from 'react-redux';
 const Navbar = () => {
-    const { state: cartState } = useContext(ShopContext)
-    const { state: likeState } = useContext(LikeContext)
+    const cartData = useSelector(state => state.shop?.data || []); 
+    const likeData = useSelector(state => state.like?.data || []);
     const navigate = useNavigate()
     return (
         <>
@@ -69,12 +68,12 @@ const Navbar = () => {
                         </div>
                         <div className="left">
                             <span onClick={() => navigate("/shop")}>
-                                <Badge count={cartState.data.length}>
+                                <Badge count={cartData.length}>
                                     <FaCartShopping className='icon' />
                                 </Badge>
                             </span>
                             <span onClick={() => navigate("/like")}>
-                                <Badge count={likeState.data.length}>
+                                <Badge count={likeData.length}>
                                     <Heart className='icon' />
                                 </Badge>
                             </span>

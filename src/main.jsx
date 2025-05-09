@@ -3,15 +3,13 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import '@ant-design/v5-patch-for-react-19';
 import { RouterProvider } from 'react-router-dom';
-import { ShopContextProvider } from './context/shop-context';
 import { router } from './routes';
-import { LikeContextProvider } from './context/heart-context';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ShopContextProvider>
-      <LikeContextProvider>
-        <RouterProvider router={router} />
-      </LikeContextProvider>
-    </ShopContextProvider>
-  </StrictMode>,
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  </StrictMode>
 )

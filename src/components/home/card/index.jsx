@@ -1,25 +1,29 @@
-import React, { useContext, useState } from 'react';
 import '../card/card.scss'
 import { Button } from 'antd';
-import { ShopContext } from '../../../context/shop-context';
 import toast from 'react-hot-toast';
 import { MdOutlineAddShoppingCart, MdOutlineRemoveShoppingCart } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from '../../../redux/shopSlice';
+import { toggleLike } from '../../../redux/likeSlice';
 import { LiaStarSolid } from "react-icons/lia";
 import { FaHeart } from 'react-icons/fa';
-import { LikeContext } from '../../../context/heart-context';
+
 const Card = (value) => {
     let { id, title, many, price, img } = value
-    const { state: cartState, dispatch: cartDispatch } = useContext(ShopContext);
-    const { state: likeState, dispatch: likeDispatch } = useContext(LikeContext);
-    const alreadyInCart = cartState.data.some(item => item.id === id);
-    // const [liked, setLiked] = useState(false);
-    const alreadyLiked = likeState.data.some(item => item.id === id);
+    const dispatch = useDispatch();
+    const cart = useSelector(state => state.cardSlice?.data || []);
+    const liked = useSelector(state => state.like?.data || []);
+    const alreadyInCart = cart.some(item => item.id === id);
+    const alreadyLiked = liked.some(item => item.id === id);
     return (
         <div className='card'>
             <div className="img">
                 <FaHeart
                     onClick={() => {
-                        likeDispatch({ type: "toggle_like", data: value })
+                        dispatch(toggleLike(value))
+                        console.log("Liked:", liked);
+                        console.log("Already Liked?", alreadyLiked);
+
                     }}
                     className={`heart ${alreadyLiked ? 'liked' : ''}`}
                 />
@@ -34,7 +38,7 @@ const Card = (value) => {
                     <h5 className='price'>{price.toLocaleString()}so'm</h5>
                     <Button shape="circle" disabled={alreadyInCart} onClick={() => {
                         if (many) {
-                            cartDispatch({ type: "add_product", data: value })
+                            dispatch(addProduct((value)))
                             toast.success("savatga qoshildi!")
                             return;
                         }
